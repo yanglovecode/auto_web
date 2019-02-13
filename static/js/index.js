@@ -205,11 +205,11 @@ function showOverlay(info, buttt) {
 /* ------------------------------------------------------------------ */
 $('.search-text-icon').click(function() {
    
-    if( !$("#files-info").val() || $("#files-info").val().length < 4 ) {
-        $("#files-info").focus().val("").attr("placeholder","搜索内容不能为空或长度小于4个字符");
-        //#控制搜索内容长度
-
-    } else {
+    // if( !$("#files-info").val() || $("#files-info").val().length < 4 ) {
+    //     $("#files-info").focus().val("").attr("placeholder","搜索内容不能为空或长度小于4个字符");
+    //     //#控制搜索内容长度
+    //
+    // } else {
 
     var op = {
         // "cache":false,
@@ -242,13 +242,13 @@ $('.search-text-icon').click(function() {
 	    for(var i=0; i<Length; i++) {
 		var html = 
 		'<div class="file-content">' +
-                    '<div class="file-name" style="width:25%;">'+data[i].filename+'</div>' +
-                    '<div class="file-size" style="width:10%;">'+data[i].size+'</div>' +
-                    '<div class="file-date" style="width:10%;">'+data[i].download+'</div>' +
-                    '<div class="file-date" style="width:20%;">'+data[i].time+'</div>' +
-                    '<div class="file-link" style="width:35%; padding-right: 80px; text-overflow: ellipsis; overflow: hidden;">' +
+                    '<div class="file-name" style="width:20%;">'+data[i].filename+'</div>' +
+                    '<div class="file-size" style="width:8%;">'+data[i].size+'</div>' +
+                    '<div class="file-date" style="width:8%;">'+data[i].download+'</div>' +
+                    '<div class="file-date" style="width:15%;">'+data[i].time+'</div>' +
+                    '<div class="file-link" style="width:25%; padding-right: 80px; text-overflow: ellipsis; overflow: hidden;">' +
                         '<span>' +
-                            'http://10.204.48.213:9999/s/'+data[i].key+
+                            'http://127.0.0.1:8000/s/'+data[i].key+
                         '</span>' +
                     '</div>' +
                     '<button><a href="/s/'+data[i].key+'">Download</a></button>' +
@@ -260,6 +260,6 @@ $('.search-text-icon').click(function() {
 	
 	$.ajax(op);
 
-    };
+    // };
 })
 

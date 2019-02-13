@@ -1,19 +1,22 @@
 {% extends "base.html" %} #使用extends 指定继承 base.html页面,
 {#用下面的内容去动态填充 base.html 里的content#}
+{#{%block name %} ··· {%endblock%} :用于指定被替换的内容,内容名称为 name.#}
 {% block content %}
 {#content 是后台穿过来的值。#}
     {% for i in content %}
                     <div class="file-content">
-                    <div class="file-name" style="width:25%;">{{ i.name }}</div>
-                    <div class="file-size" style="width:10%;">{{ i.Filesize }}B</div>
-                    <div class="file-date" style="width:10%;">{{ i.DownloadDocount }}</div>
-                    <div class="file-date" style="width:20%;">{{ i.Datatime }}</div>
-                    <div class="file-link" style="width:35%; padding-right: 80px; text-overflow: ellipsis; overflow: hidden;">
+                    <div class="file-name" style="width:20%;">{{ i.name }}</div>
+                    <div class="file-size" style="width:8%;">{{ i.Filesize }}B</div>
+                    <div class="file-date" style="width:8%;">{{ i.DownloadDocount }}</div>
+                    <div class="file-date" style="width:15%;">{{ i.Datatime }}</div>
+                    <div class="file-link" style="width:25%; padding-right: 80px; text-overflow: ellipsis; overflow: hidden;">
                         <span>
                             http://127.0.0.1:8000/s/{{ i.code}}
                         </span>
                     </div>
-                    <a href="/{{ i.path }}" style="color:#FFF;"><button>Download</button></a>
+                         <a href="/{{ i.path }}" style="color:#FFF;"><button>Download</button></a>
+
+                         <a href="/{{ i.path }}" style="color:#FFF;"><button>1</button></a>
 {#实现下载文件#}
                 </div>
     {% endfor %}

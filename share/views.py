@@ -8,6 +8,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.views import View
 
+from share.filters import ProductFilter
 from share.models import Upload
 
 
@@ -57,7 +58,7 @@ class SearchView(View):
 
     def get(self, request):
         code = request.GET.get("kw")  # 获取get请求中的kw的值，即搜索的内容.
-        u = Upload.objects.filter(name=str(code))
+        u = Upload.objects.filter(name__iregex=str(code))
         data = {}  # 定义一个空字典,将查询的结果放入字典中
         if u:
             for i in range(len(u)):
